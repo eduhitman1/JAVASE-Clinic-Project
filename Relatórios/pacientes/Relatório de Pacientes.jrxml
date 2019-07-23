@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Relatório de Pacientes" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="e3517400-54e9-4be3-a501-2f0fde3cfb81">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[select *from pacientes order by paci_nome;]]>
+	</queryString>
+	<field name="paci_codigo" class="java.lang.Integer"/>
+	<field name="paci_nome" class="java.lang.String"/>
+	<field name="paci_rg" class="java.lang.String"/>
+	<field name="paci_telefone" class="java.lang.String"/>
+	<field name="paci_rua" class="java.lang.String"/>
+	<field name="paci_cep" class="java.lang.String"/>
+	<field name="paci_complemento" class="java.lang.String"/>
+	<field name="paci_baicodigo" class="java.lang.Integer"/>
+	<field name="paci_nasc" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="43" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="131" height="43" uuid="4d3f47b6-fd51-4001-b005-66e21ccddd03"/>
+				<textElement>
+					<font size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Clientes]]></text>
+			</staticText>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="372" y="0" width="183" height="20" uuid="aca0eda1-dadc-4cfd-978c-1edd2c282b55"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="20" splitType="Stretch">
+			<staticText>
+				<reportElement x="62" y="0" width="33" height="20" uuid="b5b7840f-1f40-4c5b-86eb-2f5fd6b41e41"/>
+				<text><![CDATA[ID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="95" y="0" width="147" height="20" uuid="cef20369-c81e-4768-87ff-4b2f83a075cb"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nome do Paciente]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="242" y="0" width="67" height="20" uuid="4f42ce89-eeed-4c19-a93e-3b1124e9dd43"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nascimento]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="309" y="0" width="52" height="20" uuid="ce8b08a0-dfd0-4167-8c33-dc854094dfb1"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Telefone]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="361" y="0" width="100" height="20" uuid="96d45847-f702-4ab7-b0a6-49b5ede5dfe4"/>
+				<text><![CDATA[Documento]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement x="62" y="0" width="33" height="20" uuid="33ea1b1a-3e47-46a9-b314-24648c3909c3"/>
+				<textFieldExpression><![CDATA[$F{paci_codigo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="95" y="0" width="147" height="20" uuid="9404a00e-982f-4fa1-980c-40e2a2ca152c"/>
+				<textFieldExpression><![CDATA[$F{paci_nome}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="242" y="0" width="67" height="20" uuid="af658fd8-2649-4f55-9d04-9ef408765ed0"/>
+				<textFieldExpression><![CDATA[$F{paci_nasc}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="309" y="0" width="52" height="20" uuid="39c1ea7d-1cf6-4ea5-9d89-d840bbe7e8fa"/>
+				<textFieldExpression><![CDATA[$F{paci_telefone}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="361" y="0" width="100" height="20" uuid="7a23cb88-3e7c-4e1b-9f87-22d57cb8d335"/>
+				<textFieldExpression><![CDATA[$F{paci_rg}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch">
+			<textField>
+				<reportElement x="423" y="27" width="100" height="20" uuid="85a517e5-adec-4fed-8fde-96d686005090"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>
